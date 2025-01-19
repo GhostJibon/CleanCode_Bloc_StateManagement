@@ -3,8 +3,8 @@ class NameCubit extends Cubit<NameState> {
   NameCubit({required this.useCase}) : super(NameState.initial());
 
   Future<void> getName({
-    required final String token,
-    final int? id,
+    required  final String token,
+    required  int id,
   }) async {
     emit(state.copyWith(
       nameState: NormalApiState.loading,
@@ -32,7 +32,6 @@ class NameCubit extends Cubit<NameState> {
 
   Future<void> postName({
     required final String token,
-    required int charge,
     required int id,
     required String text
   }) async {
@@ -40,7 +39,7 @@ class NameCubit extends Cubit<NameState> {
       updateNameState: NormalApiState.loading,
     ));
     await useCase
-        .deliveryChargeUpdate(token: token, charge: charge, id: id, text: text)
+        .nameUpdate(token: token, id: id, text: text)
         .then((response) {
       response.fold(
           (error) => emit(state.copyWith(

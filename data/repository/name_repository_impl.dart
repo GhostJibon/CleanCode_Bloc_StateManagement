@@ -16,11 +16,10 @@ class NameRepositoryImpl extends NameRepository {
   @override
   Future<Either<Failure, dynamic>> postName({
     required final String token,
-    required int charge,
     required int id,
     required String text,
   }) async {
     return await service.postName(
-        token: token, charge: charge, id: id, text: text);
+        token: token, id: id, text: text);
   }
 }

@@ -6,7 +6,7 @@ class NameDataSource {
     required final int id,
   }) async {
     final APIRequestParam param = APIRequestParam(
-      path: ApiEndPoints.deliveryChargeGet,
+      path: ApiEndPoints.nameGet,
       // '${ApiEndPoints.dateRangeSell}/id',
       options: Options(headers: {"Authorization": "Bearer $token"}),
       isRequiredAuth: true,
@@ -31,13 +31,12 @@ class NameDataSource {
   Future<Either<Failure, dynamic>> postName({
     required final String token,
     required int id,
-    required int charge,
     required String text,
   }) async {
     final payload = APIRequestParam(
-      path: "${ApiEndPoints.deliveryChargePost}/$id",
+      path: "${ApiEndPoints.namePost}/$id",
       options: Options(headers: {"Authorization": "Bearer $token"}),
-      data: {"charge": charge, "settings": text},
+      data: {"text": text},
       isRequiredAuth: true,
     );
     return await client.patch(payload).then((response) {

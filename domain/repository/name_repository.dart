@@ -6,7 +6,6 @@ abstract class NameRepository {
 
   Future<Either<Failure, dynamic>> postName({
     required final String token,
-    required int charge,
     required int id,
     required String text,
   });

@@ -13,9 +13,9 @@ class NameScreenState extends State<NameScreen> {
   void initState() {
     super.initState();
 
-    context
-        .read<NameCubit>()
-        .getName(token: state.user.accessToken,);
+    // context
+    //     .read<NameCubit>()
+    //     .getName(token: state.user.accessToken,);
   }
 
 
