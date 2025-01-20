@@ -10,7 +10,7 @@ class NameRepositoryImpl extends NameRepository {
     required String token,
     required final int id,
   }) async {
-    return await service.getName(token: token, page: id);
+    return await service.getName(token: token, id: id);
   }
 
   @override

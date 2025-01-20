@@ -39,7 +39,7 @@ class NameCubit extends Cubit<NameState> {
       updateNameState: NormalApiState.loading,
     ));
     await useCase
-        .nameUpdate(token: token, id: id, text: text)
+        .postName(token: token, id: id, text: text)
         .then((response) {
       response.fold(
           (error) => emit(state.copyWith(
